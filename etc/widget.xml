@@ -13,7 +13,7 @@
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="jasonalvis_twitter" class="Jasonalvis\Twitter\Block\Widget\Tweets">
         <label translate="true">Twitter Feed</label>
-        <description translate="true">Display a Twitter feed. Get your API keys and tokens at https://apps.twitter.com/</description>
+        <description translate="true">Display a Twitter feed.</description>
         <parameters>
             <parameter name="title" xsi:type="text" visible="true" sort_order="0">
                 <label translate="true">Title</label>
