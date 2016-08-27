@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Jason Alvis Twitter
+ *
+ * @category    Jasonalvis
+ * @package     Jasonalvis_Twitter
+ * @author      Jason Alvis <hello@jasonalvis.co.uk>
+ * @copyright   Copyright (c) 2016 Jason Alvis (http://jasonalvis.co.uk)
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="jasonalvis_twitter" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Twitter</label>
+            <tab>jasonalvis_core</tab>
+            <resource>Jasonalvis_Twitter::admin</resource>
+            <group id="config" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Configuration</label>
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="screen_name" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Screen name</label>
+                </field>
+                <field id="consumer_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Consumer Key</label>
+                </field>
+                <field id="consumer_key_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Consumer Secret</label>
+                </field>
+                <field id="access_token" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Access Token</label>
+                </field>
+                <field id="access_token_secret" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Access Token Secret</label>
+                </field>
+            </group>
+
+            <group id="display" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Display Settings</label>
+                <field id="number_of_tweets" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of tweets to show</label>
+                    <source_model>Jasonalvis\Twitter\Model\Config\Source\NumberOfTweets</source_model>
+                </field>
+                <field id="show_follow" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show follow button</label>
+                    <comment>Show user follow button.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_screen_name" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show screen name</label>
+                    <comment>Show the user screen name.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_avatar" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show avatar image</label>
+                    <comment>Show the user profile image.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_links" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show links in tweets</label>
+                    <comment>Make URL links clickable.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_reply" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show reply link</label>
+                    <comment>Show the reply link.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_retweet" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show retweet link</label>
+                    <comment>Show the retweet link.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_favorite" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show favorite link</label>
+                    <comment>Show the favorite link.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_nofollow" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use nofollow tag in links</label>
+                    <comment>Add rel="nofollow" for URL links.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="hash_tags" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link # tags</label>
+                    <comment>Make # tags clickable.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="at_tags" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link @ tags</label>
+                    <comment>Make @ tags clickable.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="new_window" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Open links in a new window</label>
+                    <comment>Applies to all links in the tweet including # tags and @ tags.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="media" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Media Settings</label>
+                <field id="show_media" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show media urls</label>
+                    <comment>If set to no media urls will be stripped from the tweet.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_links" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show media as links</label>
+                    <comment>Show media as clickable links not images.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_media">1</field>
+                    </depends>
+                </field>
+                <field id="show_images" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show media as images</label>
+                    <comment>Show media as images.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_media">1</field>
+                        <field id="show_links">0</field>
+                    </depends>
+                </field>
+                <field id="image_size" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Media image size</label>
+                    <source_model>Jasonalvis\Twitter\Model\Config\Source\MediaImageSize</source_model>
+                    <depends>
+                        <field id="show_media">1</field>
+                        <field id="show_links">0</field>
+                        <field id="show_images">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="search" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Search Tweets</label>
+                <field id="query" translate="label comment" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Search query</label>
+                    <comment>Used when displaying searched tweets. Search query of 500 characters maximum, including operators. E.g magento</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

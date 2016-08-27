@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Jason Alvis Twitter
+ *
+ * @category    Jasonalvis
+ * @package     Jasonalvis_Twitter
+ * @author      Jason Alvis <hello@jasonalvis.co.uk>
+ * @copyright   Copyright (c) 2016 Jason Alvis (http://jasonalvis.co.uk)
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="main">
+            <block name="jasonalvis_twitter.latest" class="Jasonalvis\Twitter\Block\Tweets" after="-" template="latest-tweets.phtml" />
+            <block name="jasonalvis_twitter.mentions" class="Jasonalvis\Twitter\Block\Tweets" after="jasonalvis_twitter.latest" template="mentions-tweets.phtml" />
+            <block name="jasonalvis_twitter.search" class="Jasonalvis\Twitter\Block\Tweets" after="jasonalvis_twitter.mentions" template="search-tweets.phtml" />
+        </referenceContainer>
+    </body>
+</page>
