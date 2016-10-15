@@ -23,20 +23,25 @@
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="screen_name" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="screen_name" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Screen name</label>
+                    <comment>Your Twitter screen name with or without the @ symbol.</comment>
                 </field>
-                <field id="consumer_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="consumer_key" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Consumer Key</label>
+                    <comment>Provided to you when you create a Twitter app. https://apps.twitter.com</comment>
                 </field>
-                <field id="consumer_key_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="consumer_key_secret" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Consumer Secret</label>
+                    <comment>Provided to you when you create a Twitter app. https://apps.twitter.com</comment>
                 </field>
-                <field id="access_token" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="access_token" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Access Token</label>
+                    <comment>Provided to you when you create a Twitter app. https://apps.twitter.com</comment>
                 </field>
-                <field id="access_token_secret" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="access_token_secret" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Access Token Secret</label>
+                    <comment>Provided to you when you create a Twitter app. https://apps.twitter.com</comment>
                 </field>
             </group>
 
@@ -107,7 +112,7 @@
                 <label>Media Settings</label>
                 <field id="show_media" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Show media urls</label>
-                    <comment>If set to no media urls will be stripped from the tweet.</comment>
+                    <comment>If set to "No" media urls will be stripped from the tweet.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="show_links" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">

@@ -94,6 +94,9 @@ Alternatively you can use the Twitter Feed widget which has the following settin
   * Type of feed to show, latest tweets, mentioned tweets or search tweets
   * Search query
 
+## Styling
+Currently no styling is provided with the module, please create your own.
+
 [twitter-api]: https://dev.twitter.com/oauth/overview/introduction
 [twitter-oauth]: https://github.com/abraham/twitteroauth
 [twitter-apps]: https://apps.twitter.com
