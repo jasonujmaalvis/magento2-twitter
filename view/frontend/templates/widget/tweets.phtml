@@ -12,45 +12,51 @@
 <?php if($tweets = $this->getTweets()): ?>
     <div>
         <?php if($title = $this->getTitle()): ?>
-          <h2><?php echo $title; ?></h2>
+          <h2><?php echo $block->escapeHtml($title); ?></h2>
         <?php endif; ?>
 
         <ul>
             <?php foreach($tweets as $tweet): ?>
                 <li>
                     <?php if($this->getShowAvatar()): ?>
-                        <p><img src="<?php echo $tweet['user_image']; ?>" alt="<?php echo $tweet['user_name']; ?>"></p>
+                        <p><img src="<?php echo $this->escapeUrl($tweet['user_image']); ?>" alt="<?php echo $this->escapeHtml($tweet['user_name']); ?>"></p>
                     <?php endif; ?>
 
                     <?php if($this->getShowScreenName()): ?>
-                        <p><?php echo trim($tweet["user_name"]); ?> - <?php echo $tweet["screen_name"]; ?></p>
+                        <p>
+                            <?php echo $this->escapeHtml($tweet['user_name']); ?>
+
+                            <a target="_blank" href="<?php echo $this->escapeUrl(sprintf('http://twitter.com/@%s', $tweet['screen_name'])); ?>">
+                                <?php echo $this->escapeHtml(sprintf(__('@%s'), $tweet['screen_name'])); ?>
+                            </a>
+                        </p>
                     <?php endif; ?>
 
-                    <p><?php echo trim($tweet["tweet"]); ?></p>
+                    <p><?php /* @noEscape */ echo $tweet['tweet']; ?></p>
 
-                    <?php if($this->getShowMedia() && $this->getShowMediaImages() && isset($tweet["media_url"]) && isset($tweet["media_image_url"])): ?>
-                        <a href="<?php echo $tweet["media_url"]; ?>">
-                            <img src="<?php echo $tweet["media_image_url"] . ':' . $this->getMediaImageSize()  ?>" alt="">
+                    <?php if($this->getShowMedia() && $this->getShowMediaImages() && isset($tweet['media_url']) && isset($tweet['media_image_url'])): ?>
+                        <a href="<?php echo $this->escapeUrl($tweet['media_url']); ?>">
+                            <img src="<?php echo $this->escapeUrl($tweet['media_image_url'] . ':' . $this->getMediaImageSize()); ?>" alt="">
                         </a>
                     <?php endif; ?>
 
-                    <p><?php echo trim($tweet["time"]); ?></p>
+                    <p><?php echo $this->escapeHtml($tweet['time']); ?></p>
 
                     <?php if($this->getShowReply()): ?>
-                        <a href="https://twitter.com/intent/tweet?in_reply_to=<?php echo $tweet["id"]; ?>" target="_blank">
-                            <?php echo __('Reply'); ?>
+                        <a href="<?php echo $this->escapeUrl(sprintf('https://twitter.com/intent/tweet?in_reply_to=%d', $tweet['id'])); ?>" target="_blank">
+                            <?php echo $this->escapeHtml(__('Reply')); ?>
                         </a>
                     <?php endif; ?>
 
                     <?php if($this->getShowRetweet()): ?>
-                        <a href="https://twitter.com/intent/retweet?tweet_id=<?php echo $tweet["id"]; ?>" target="_blank">
-                            <?php echo __('Retweet'); ?>
+                        <a href="<?php echo $this->escapeUrl(sprintf('https://twitter.com/intent/retweet?tweet_id=%d', $tweet['id'])); ?>" target="_blank">
+                            <?php echo $this->escapeHtml(__('Retweet')); ?>
                         </a>
                     <?php endif; ?>
 
                     <?php if($this->getShowFavorite()): ?>
-                        <a href="https://twitter.com/intent/like?tweet_id=<?php echo $tweet["id"]; ?>" target="_blank">
-                            <?php echo __('Favorite'); ?>
+                        <a href="<?php echo $this->escapeUrl(sprintf('https://twitter.com/intent/like?tweet_id=%d', $tweet['id'])); ?>" target="_blank">
+                            <?php echo $this->escapeHtml(__('Favorite')); ?>
                         </a>
                     <?php endif; ?>
                 </li>
@@ -58,8 +64,8 @@
         </ul>
 
         <?php if($this->getShowFollow()): ?>
-            <a href="https://twitter.com/@<?php echo $this->getScreenName() ?>" target="_blank">
-                <?php echo __('Follow @' . $this->getScreenName()); ?>
+            <a href="<?php echo $block->escapeUrl(sprintf('https://twitter.com/@%s', $this->getScreenName())); ?>" target="_blank">
+                <?php echo $block->escapeHtml(sprintf(__('Follow @%s'), $this->getScreenName())); ?>
             </a>
         <?php endif; ?>
     </div>

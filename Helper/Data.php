@@ -21,6 +21,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     protected $_scopeConfig;
 
+    private $logger;
     private $consumerKey;
     private $consumerSecret;
     private $accessToken;
@@ -55,11 +56,14 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
     /**
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeInterface
+     * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeInterface
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeInterface,
+        \Psr\Log\LoggerInterface $logger
     ) {
         $this->_scopeConfig = $scopeInterface;
+        $this->logger = $logger;
     }
 
     /**
@@ -447,7 +451,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             }
 
             // Store our data into the tweet
-            $t[$i]["screen_name"] = '<a target="_blank" href="http://twitter.com/@' . $tweet->user->screen_name . '">@' . $tweet->user->screen_name . '</a>';
+            $t[$i]["screen_name"] = $tweet->user->screen_name;
             $t[$i]["user_name"]   = $tweet->user->name;
             $t[$i]["user_image"]  = $tweet->user->profile_image_url;
             $t[$i]["tweet"]       = trim($this->changeLink($text, $this->getShowLinks(), $this->getUseNoFollow(), $this->getNewWindow()));
@@ -488,6 +492,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         // Check an array is returned (object is returned if there are errors)
         if(is_array($result)) {
             return $this->getTweets($result);
+        } else if(property_exists($result, "errors")) {
+            foreach ($result->errors as $error) {
+                $this->logger->info("Twitter. Get latest tweets error code '" . $error->code . "' " . $error->message);
+            }
         }
     }
 
@@ -515,6 +523,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         // Check an array is returned (object is returned if there are errors)
         if(is_array($result)) {
             return $this->getTweets($result);
+        } else if(property_exists($result, "errors")) {
+            foreach ($result->errors as $error) {
+                $this->logger->info("Twitter. Get mentions tweets error code '" . $error->code . "' " . $error->message);
+            }
         }
     }
 
@@ -544,8 +556,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         ));
 
         // Check the object has statuses
-        if($result->statuses) {
+        if(property_exists($result, "statuses")) {
             return $this->getTweets($result->statuses);
+        } else if(property_exists($result, "errors")) {
+            foreach ($result->errors as $error) {
+                $this->logger->info("Twitter. Get search tweets error code '" . $error->code . "' " . $error->message);
+            }
         }
     }
 }
