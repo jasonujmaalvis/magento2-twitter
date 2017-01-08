@@ -48,7 +48,9 @@ Display tweets based off a search query, used when displaying searched tweets.
 ## Integration
 By default Twitter displays in the main content.
 
-Move xml block within your theme `<theme_dir>/Jasonalvis_Twitter/layout/default.xml`:
+Extend the layout within your theme `<theme_dir>/Jasonalvis_Twitter/layout/default.xml`.
+
+Move xml block:
 
 ```xml
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
@@ -60,7 +62,7 @@ Move xml block within your theme `<theme_dir>/Jasonalvis_Twitter/layout/default.
 </page>
 ```
 
-Remove xml block within your theme `<theme_dir>/Jasonalvis_Twitter/layout/default.xml`:
+Remove xml block:
 
 ```xml
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
@@ -74,17 +76,29 @@ Remove xml block within your theme `<theme_dir>/Jasonalvis_Twitter/layout/defaul
 </page>
 ```
 
+Update xml block arguments:
+
+```xml
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="jasonalvis_twitter.latest">
+            <arguments>
+                <argument name="title" xsi:type="string">New Block Title</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
+```
+
 Override the default templates within your theme create the following files:
 
-    <theme_dir>/Jasonalvis_Twitter/templates/latest-tweets.phtml
-    <theme_dir>/Jasonalvis_Twitter/templates/mentions-tweets.phtml
-    <theme_dir>/Jasonalvis_Twitter/templates/search-tweets.phtml
+    <theme_dir>/Jasonalvis_Twitter/templates/tweets.phtml
+    <theme_dir>/Jasonalvis_Twitter/templates/widget/tweets.phtml
 
 The original contents of the files can be found under:
 
-    <root_dir>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/latest-tweets.phtml
-    <root_dir>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/mentions-tweets.phtml
-    <root_dir>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/search-tweets.phtml
+    <root_dir>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/tweets.phtml
+    <root_dir>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/widget/tweets.phtml
 
 ### Widget
 Alternatively you can use the Twitter Feed widget which has the following settings available:
