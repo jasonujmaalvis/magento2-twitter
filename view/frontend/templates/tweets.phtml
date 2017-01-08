@@ -9,9 +9,20 @@
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 ?>
-<?php if($this->getEnabled() && $tweets = $this->getSearchTweets()): ?>
+
+<?php
+    if($this->getType() === 'mentions') {
+        $tweets = $this->getMentionsTweets();
+    } else if($this->getType() === 'search') {
+        $tweets = $this->getSearchTweets();
+    } else {
+        $tweets = $this->getLatestTweets();
+    }
+?>
+
+<?php if($this->getEnabled() && $tweets): ?>
     <div>
-        <h2><?php echo $block->escapeHtml(__('Search Tweets')) ?></h2>
+        <h2><?php echo $this->escapeHtml($this->getLabel()) ?></h2>
 
         <ul>
             <?php foreach($tweets as $tweet): ?>
@@ -60,5 +71,11 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+
+        <?php if($this->getType() === 'latest' && $this->getShowFollow()): ?>
+            <a href="<?php echo $this->escapeUrl(sprintf('https://twitter.com/@%s', $this->getScreenName())); ?>" target="_blank">
+                <?php echo $this->escapeHtml(sprintf(__('Follow @%s'), $this->getScreenName())); ?>
+            </a>
+        <?php endif; ?>
     </div>
 <?php endif; ?>

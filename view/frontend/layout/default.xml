@@ -13,9 +13,26 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block name="jasonalvis_twitter.latest" class="Jasonalvis\Twitter\Block\Tweets" after="-" template="latest-tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled" />
-            <block name="jasonalvis_twitter.mentions" class="Jasonalvis\Twitter\Block\Tweets" after="jasonalvis_twitter.latest" template="mentions-tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled" />
-            <block name="jasonalvis_twitter.search" class="Jasonalvis\Twitter\Block\Tweets" after="jasonalvis_twitter.mentions" template="search-tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled" />
+            <block name="jasonalvis_twitter.latest" class="Jasonalvis\Twitter\Block\Tweets" after="-" template="tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled">
+                <arguments>
+                    <argument name="label" xsi:type="string">Latest Tweets</argument>
+                    <argument name="type" xsi:type="string">latest</argument>
+                </arguments>
+            </block>
+
+            <block name="jasonalvis_twitter.mentions" class="Jasonalvis\Twitter\Block\Tweets" after="jasonalvis_twitter.latest" template="tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled">
+                <arguments>
+                    <argument name="label" xsi:type="string">Mentions Tweets</argument>
+                    <argument name="type" xsi:type="string">mentions</argument>
+                </arguments>
+            </block>
+
+            <block name="jasonalvis_twitter.search" class="Jasonalvis\Twitter\Block\Tweets" after="jasonalvis_twitter.mentions" template="tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled">
+                <arguments>
+                    <argument name="label" xsi:type="string">Search Tweets</argument>
+                    <argument name="type" xsi:type="string">search</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
