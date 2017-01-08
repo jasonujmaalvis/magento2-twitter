@@ -392,10 +392,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $i = 0;
 
         foreach ($tweets as $tweet) {
-            $text     = $tweet->text;
-            $urls     = $tweet->entities->urls;
-            $mentions = $tweet->entities->user_mentions;
-            $hashtags = $tweet->entities->hashtags;
+            $text        = $tweet->text;
+            $urls        = $tweet->entities->urls;
+            $mentions    = $tweet->entities->user_mentions;
+            $hashtags    = $tweet->entities->hashtags;
 
             // If we have any urls
             if($urls){
@@ -409,8 +409,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             // If we have any mentions and we want to show @ tags
             if($mentions && $this->getAtTags()) {
                 foreach($mentions as $mention) {
-                    if(strpos($text, $mention->screen_name) !== false) {
-                        $text = str_replace("@" . $mention->screen_name . " ", '<a href="http://twitter.com/' . $mention->screen_name . '">@' . $mention->screen_name . '</a> ', $text);
+                    if(strpos(strtolower($text), strtolower($mention->screen_name)) !== false) {
+                        $text = str_replace("@" . strtolower($mention->screen_name), '<a href="http://twitter.com/' . $mention->screen_name . '">@' . $mention->screen_name . '</a>', strtolower($text));
                     }
                 }
             }
@@ -418,8 +418,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             // If we have any hashtags and we want to show # tags
             if($hashtags && $this->getHashTags()) {
                 foreach($hashtags as $hashtag) {
-                    if(strpos($text, $hashtag->text) !== false) {
-                        $text = str_replace('#'. $hashtag->text . " ", '<a href="http://twitter.com/hashtag/' . $hashtag->text . '?src=hash">#' . $hashtag->text . '</a> ', $text);
+                    if(strpos(strtolower($text), strtolower($hashtag->text)) !== false) {
+                        $text = str_replace('#'. strtolower($hashtag->text), '<a href="http://twitter.com/hashtag/' . $hashtag->text . '?src=hash">#' . $hashtag->text . '</a>', strtolower($text));
                     }
                 }
             }
