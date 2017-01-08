@@ -22,7 +22,9 @@
 
 <?php if($this->getEnabled() && $tweets): ?>
     <div>
-        <h2><?php echo $this->escapeHtml($this->getLabel()) ?></h2>
+        <?php if($this->hasTitle()): ?>
+            <h2><?php echo $this->escapeHtml($this->getTitle()) ?></h2>
+        <?php endif; ?>
 
         <ul>
             <?php foreach($tweets as $tweet): ?>

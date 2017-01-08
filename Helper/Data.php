@@ -392,10 +392,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $i = 0;
 
         foreach ($tweets as $tweet) {
-            $text        = $tweet->text;
-            $urls        = $tweet->entities->urls;
-            $mentions    = $tweet->entities->user_mentions;
-            $hashtags    = $tweet->entities->hashtags;
+            $text     = $tweet->text;
+            $urls     = $tweet->entities->urls;
+            $mentions = $tweet->entities->user_mentions;
+            $hashtags = $tweet->entities->hashtags;
 
             // If we have any urls
             if($urls){

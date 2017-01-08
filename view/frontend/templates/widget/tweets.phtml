@@ -12,7 +12,7 @@
 <?php if($tweets = $this->getTweets()): ?>
     <div>
         <?php if($title = $this->getTitle()): ?>
-          <h2><?php echo $block->escapeHtml($title); ?></h2>
+          <h2><?php echo $this->escapeHtml($title); ?></h2>
         <?php endif; ?>
 
         <ul>
@@ -64,8 +64,8 @@
         </ul>
 
         <?php if($this->getShowFollow()): ?>
-            <a href="<?php echo $block->escapeUrl(sprintf('https://twitter.com/@%s', $this->getScreenName())); ?>" target="_blank">
-                <?php echo $block->escapeHtml(sprintf(__('Follow @%s'), $this->getScreenName())); ?>
+            <a href="<?php echo $this->escapeUrl(sprintf('https://twitter.com/@%s', $this->getScreenName())); ?>" target="_blank">
+                <?php echo $this->escapeHtml(sprintf(__('Follow @%s'), $this->getScreenName())); ?>
             </a>
         <?php endif; ?>
     </div>
