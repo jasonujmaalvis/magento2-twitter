@@ -4,7 +4,7 @@
  *
  * @category    Jasonalvis
  * @package     Jasonalvis_Twitter
- * @author      Jason Alvis <hello@jasonalvis.co.uk>
+ * @author      Jason Alvis
  * @copyright   Copyright (c) 2016 Jason Alvis (http://jasonalvis.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */

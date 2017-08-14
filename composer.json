@@ -5,7 +5,6 @@
     "authors": [
         {
             "name": "Jason Alvis",
-            "email": "hello@jasonalvis.co.uk",
             "homepage": "http://jasonalvis.co.uk"
         }
     ],
@@ -13,10 +12,7 @@
         "source": "https://github.com/jasonalvis/magento2-twitter",
         "issues": "https://github.com/jasonalvis/magento2-twitter/issues"
     },
-    "license": [
-        "OSL-3.0",
-        "AFL-3.0"
-    ],
+    "license": "MIT",
     "require": {
         "jasonalvis/magento2-core": "~0.0.1",
         "abraham/twitteroauth": "^0.6.4"
