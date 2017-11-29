@@ -8,6 +8,16 @@ Recommended installation through composer, within your Magento root directory en
 
     composer require jasonalvis/magento2-twitter
 
+## Enable the module
+
+    php bin/magento module:enable JasonAlvis_Core
+    php bin/magento module:enable JasonAlvis_Twitter
+
+You may also need to re-compile:
+
+    php bin/magento setup:upgrade
+    php bin/magento setup:di:compile
+
 ## Create your Twitter app
 You will need to create a Twitter app to get your API credentials. Please use the following steps as a guide:
 
@@ -48,7 +58,7 @@ Display tweets based off a search query, used when displaying searched tweets.
 ## Integration
 By default Twitter displays in the main content.
 
-Extend the layout within your theme `<theme_dir>/Jasonalvis_Twitter/layout/default.xml`.
+Extend the layout within your theme `<VendorName>/<ThemeName>/JasonAlvis_Twitter/layout/default.xml`.
 
 Move xml block:
 
@@ -92,13 +102,13 @@ Update xml block arguments:
 
 Override the default templates within your theme create the following files:
 
-    <theme_dir>/Jasonalvis_Twitter/templates/tweets.phtml
-    <theme_dir>/Jasonalvis_Twitter/templates/widget/tweets.phtml
+    <VendorName>/<ThemeName>/JasonAlvis_Twitter/templates/tweets.phtml
+    <VendorName>/<ThemeName>/JasonAlvis_Twitter/templates/widget/tweets.phtml
 
 The original contents of the files can be found under:
 
-    <root_dir>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/tweets.phtml
-    <root_dir>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/widget/tweets.phtml
+    <Root>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/tweets.phtml
+    <Root>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/widget/tweets.phtml
 
 ### Widget
 Alternatively you can use the Twitter Feed widget which has the following settings available:

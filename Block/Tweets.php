@@ -2,30 +2,30 @@
 /**
  * Jason Alvis Twitter
  *
- * @category    Jasonalvis
- * @package     Jasonalvis_Twitter
+ * @category    JasonAlvis
+ * @package     JasonAlvis_Twitter
  * @author      Jason Alvis
  * @copyright   Copyright (c) 2016 Jason Alvis (http://jasonalvis.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
-namespace Jasonalvis\Twitter\Block;
+namespace JasonAlvis\Twitter\Block;
 
 class Tweets extends \Magento\Framework\View\Element\Template
 {
     /**
-     * @var \Jasonalvis\Twitter\Helper\Data
+     * @var \JasonAlvis\Twitter\Helper\Data
      */
     protected $_helper;
 
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array                                            $data
-     * @param \Jasonalvis\Twitter\Helper\Data                  $helper
+     * @param \JasonAlvis\Twitter\Helper\Data                  $helper
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         array $data = [],
-        \Jasonalvis\Twitter\Helper\Data $helper
+        \JasonAlvis\Twitter\Helper\Data $helper
     ) {
         $this->_helper = $helper;
         parent::__construct($context, $data);
