@@ -1,33 +1,33 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Jason Alvis Twitter
+ * Alvis Twitter
  *
- * @category    JasonAlvis
- * @package     JasonAlvis_Twitter
- * @author      Jason Alvis
- * @copyright   Copyright (c) 2016 Jason Alvis (http://jasonalvis.co.uk)
+ * @category    Alvis
+ * @package     Alvis_Twitter
+ * @author      Jason Ujma-Alvis
+ * @copyright   Copyright (c) 2019 Jason Ujma-Alvis (https://jason.codes)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block name="jasonalvis_twitter.latest" class="JasonAlvis\Twitter\Block\Tweets" after="-" template="tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled">
+            <block name="alvis_twitter.latest" class="Alvis\Twitter\Block\Tweets" after="-" template="tweets.phtml" ifconfig="alvis_twitter/config/enabled">
                 <arguments>
                     <argument name="title" xsi:type="string">Latest Tweets</argument>
                     <argument name="type" xsi:type="string">latest</argument>
                 </arguments>
             </block>
 
-            <block name="jasonalvis_twitter.mentions" class="JasonAlvis\Twitter\Block\Tweets" after="jasonalvis_twitter.latest" template="tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled">
+            <block name="alvis_twitter.mentions" class="Alvis\Twitter\Block\Tweets" after="alvis_twitter.latest" template="tweets.phtml" ifconfig="alvis_twitter/config/enabled">
                 <arguments>
                     <argument name="title" xsi:type="string">Mentions Tweets</argument>
                     <argument name="type" xsi:type="string">mentions</argument>
                 </arguments>
             </block>
 
-            <block name="jasonalvis_twitter.search" class="JasonAlvis\Twitter\Block\Tweets" after="jasonalvis_twitter.mentions" template="tweets.phtml" ifconfig="jasonalvis_twitter/config/enabled">
+            <block name="alvis_twitter.search" class="Alvis\Twitter\Block\Tweets" after="alvis_twitter.mentions" template="tweets.phtml" ifconfig="alvis_twitter/config/enabled">
                 <arguments>
                     <argument name="title" xsi:type="string">Search Tweets</argument>
                     <argument name="type" xsi:type="string">search</argument>

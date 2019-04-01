@@ -1,31 +1,33 @@
 <?php
 /**
- * Jason Alvis Twitter
+ * Alvis Twitter
  *
- * @category    JasonAlvis
- * @package     JasonAlvis_Twitter
- * @author      Jason Alvis
- * @copyright   Copyright (c) 2016 Jason Alvis (http://jasonalvis.co.uk)
+ * @category    Alvis
+ * @package     Alvis_Twitter
+ * @author      Jason Ujma-Alvis
+ * @copyright   Copyright (c) 2019 Jason Ujma-Alvis (https://jason.codes)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
-namespace JasonAlvis\Twitter\Block;
+namespace Alvis\Twitter\Block;
 
-class Tweets extends \Magento\Framework\View\Element\Template
+use \Magento\Framework\View\Element\Template;
+
+class Tweets extends Template
 {
     /**
-     * @var \JasonAlvis\Twitter\Helper\Data
+     * @var \Alvis\Twitter\Helper\Data
      */
     protected $_helper;
 
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array                                            $data
-     * @param \JasonAlvis\Twitter\Helper\Data                  $helper
+     * @param \Alvis\Twitter\Helper\Data                  $helper
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         array $data = [],
-        \JasonAlvis\Twitter\Helper\Data $helper
+        \Alvis\Twitter\Helper\Data $helper
     ) {
         $this->_helper = $helper;
         parent::__construct($context, $data);

@@ -6,12 +6,12 @@ Multiple configuration options giving you full control over your tweets. Global 
 ## Installation
 Recommended installation through composer, within your Magento root directory enter the following:
 
-    composer require jasonalvis/magento2-twitter
+    composer require alvis/magento2-twitter
 
 ## Enable the module
 
-    php bin/magento module:enable JasonAlvis_Core
-    php bin/magento module:enable JasonAlvis_Twitter
+    php bin/magento module:enable Alvis_Core
+    php bin/magento module:enable Alvis_Twitter
 
 You may also need to re-compile:
 
@@ -26,7 +26,7 @@ You will need to create a Twitter app to get your API credentials. Please use th
   3. Click on the 'Keys and Access Tokens' tab and then 'Create my access token'
 
 ## Module configuration
-The module configuration can be found through the main menu under Jason Alvis. As a minimum please ensure you enter your screen name, consumer key, consumer key secret, access token and access token secret.
+The module configuration can be found through the main menu under Alvis. As a minimum please ensure you enter your screen name, consumer key, consumer key secret, access token and access token secret.
 
 ### Display settings
 Multiple settings available giving you full control over your tweets including:
@@ -58,16 +58,16 @@ Display tweets based off a search query, used when displaying searched tweets.
 ## Integration
 By default Twitter displays in the main content.
 
-Extend the layout within your theme `<VendorName>/<ThemeName>/JasonAlvis_Twitter/layout/default.xml`.
+Extend the layout within your theme `<VendorName>/<ThemeName>/Alvis_Twitter/layout/default.xml`.
 
 Move xml block:
 
 ```xml
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <move element="jasonalvis_twitter.latest" destination="footer" after="-" />
-        <move element="jasonalvis_twitter.mentions" destination="footer" after="-" />
-        <move element="jasonalvis_twitter.search" destination="footer" after="-" />
+        <move element="alvis_twitter.latest" destination="footer" after="-" />
+        <move element="alvis_twitter.mentions" destination="footer" after="-" />
+        <move element="alvis_twitter.search" destination="footer" after="-" />
     </body>
 </page>
 ```
@@ -78,9 +78,9 @@ Remove xml block:
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <referenceBlock name="jasonalvis_twitter.latest" remove="true" />
-            <referenceBlock name="jasonalvis_twitter.mentions" remove="true" />
-            <referenceBlock name="jasonalvis_twitter.search" remove="true" />
+            <referenceBlock name="alvis_twitter.latest" remove="true" />
+            <referenceBlock name="alvis_twitter.mentions" remove="true" />
+            <referenceBlock name="alvis_twitter.search" remove="true" />
         </referenceContainer>
     </body>
 </page>
@@ -91,7 +91,7 @@ Update xml block arguments:
 ```xml
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="jasonalvis_twitter.latest">
+        <referenceBlock name="alvis_twitter.latest">
             <arguments>
                 <argument name="title" xsi:type="string">New Block Title</argument>
             </arguments>
@@ -102,13 +102,13 @@ Update xml block arguments:
 
 Override the default templates within your theme create the following files:
 
-    <VendorName>/<ThemeName>/JasonAlvis_Twitter/templates/tweets.phtml
-    <VendorName>/<ThemeName>/JasonAlvis_Twitter/templates/widget/tweets.phtml
+    <VendorName>/<ThemeName>/Alvis_Twitter/templates/tweets.phtml
+    <VendorName>/<ThemeName>/Alvis_Twitter/templates/widget/tweets.phtml
 
 The original contents of the files can be found under:
 
-    <Root>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/tweets.phtml
-    <Root>/vendor/jasonalvis/magento2-twitter/view/frontend/templates/widget/tweets.phtml
+    <Root>/vendor/alvis/magento2-twitter/view/frontend/templates/tweets.phtml
+    <Root>/vendor/alvis/magento2-twitter/view/frontend/templates/widget/tweets.phtml
 
 ### Widget
 Alternatively you can use the Twitter Feed widget which has the following settings available:

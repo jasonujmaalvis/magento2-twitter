@@ -1,18 +1,19 @@
 <?php
 /**
- * Jason Alvis Twitter
+ * Alvis Twitter
  *
- * @category    JasonAlvis
- * @package     JasonAlvis_Twitter
- * @author      Jason Alvis
- * @copyright   Copyright (c) 2016 Jason Alvis (http://jasonalvis.co.uk)
+ * @category    Alvis
+ * @package     Alvis_Twitter
+ * @author      Jason Ujma-Alvis
+ * @copyright   Copyright (c) 2019 Jason Ujma-Alvis (https://jason.codes)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
-namespace JasonAlvis\Twitter\Helper;
+namespace Alvis\Twitter\Helper;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
+use \Magento\Framework\App\Helper\AbstractHelper;
 
-class Data extends \Magento\Framework\App\Helper\AbstractHelper
+class Data extends AbstractHelper
 {
     /**
      * Core store config
@@ -27,32 +28,32 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     private $accessToken;
     private $accessTokenSecret;
 
-    CONST CONFIG_ENABLED             = 'jasonalvis_twitter/config/enabled';
-    CONST CONFIG_SCREEN_NAME         = 'jasonalvis_twitter/config/screen_name';
-    CONST CONFIG_CONSUMER_KEY        = 'jasonalvis_twitter/config/consumer_key';
-    CONST CONFIG_CONSUMER_KEY_SECRET = 'jasonalvis_twitter/config/consumer_key_secret';
-    CONST CONFIG_ACCESS_TOKEN        = 'jasonalvis_twitter/config/access_token';
-    CONST CONFIG_ACCESS_TOKEN_SECRET = 'jasonalvis_twitter/config/access_token_secret';
+    CONST CONFIG_ENABLED             = 'alvis_twitter/config/enabled';
+    CONST CONFIG_SCREEN_NAME         = 'alvis_twitter/config/screen_name';
+    CONST CONFIG_CONSUMER_KEY        = 'alvis_twitter/config/consumer_key';
+    CONST CONFIG_CONSUMER_KEY_SECRET = 'alvis_twitter/config/consumer_key_secret';
+    CONST CONFIG_ACCESS_TOKEN        = 'alvis_twitter/config/access_token';
+    CONST CONFIG_ACCESS_TOKEN_SECRET = 'alvis_twitter/config/access_token_secret';
 
-    CONST DISPLAY_NUMBER_OF_TWEETS   = 'jasonalvis_twitter/display/number_of_tweets';
-    CONST DISPLAY_SHOW_FOLLOW        = 'jasonalvis_twitter/display/show_follow';
-    CONST DISPLAY_SHOW_SCREEN_NAME   = 'jasonalvis_twitter/display/show_screen_name';
-    CONST DISPLAY_SHOW_AVATAR        = 'jasonalvis_twitter/display/show_avatar';
-    CONST DISPLAY_SHOW_LINKS         = 'jasonalvis_twitter/display/show_links';
-    CONST DISPLAY_SHOW_REPLY         = 'jasonalvis_twitter/display/show_reply';
-    CONST DISPLAY_SHOW_RETWEET       = 'jasonalvis_twitter/display/show_retweet';
-    CONST DISPLAY_SHOW_FAVORITE      = 'jasonalvis_twitter/display/show_favorite';
-    CONST DISPLAY_USE_NOFOLLOW       = 'jasonalvis_twitter/display/use_nofollow';
-    CONST DISPLAY_HASH_TAGS          = 'jasonalvis_twitter/display/hash_tags';
-    CONST DISPLAY_AT_TAGS            = 'jasonalvis_twitter/display/at_tags';
-    CONST DISPLAY_NEW_WINDOW         = 'jasonalvis_twitter/display/new_window';
+    CONST DISPLAY_NUMBER_OF_TWEETS   = 'alvis_twitter/display/number_of_tweets';
+    CONST DISPLAY_SHOW_FOLLOW        = 'alvis_twitter/display/show_follow';
+    CONST DISPLAY_SHOW_SCREEN_NAME   = 'alvis_twitter/display/show_screen_name';
+    CONST DISPLAY_SHOW_AVATAR        = 'alvis_twitter/display/show_avatar';
+    CONST DISPLAY_SHOW_LINKS         = 'alvis_twitter/display/show_links';
+    CONST DISPLAY_SHOW_REPLY         = 'alvis_twitter/display/show_reply';
+    CONST DISPLAY_SHOW_RETWEET       = 'alvis_twitter/display/show_retweet';
+    CONST DISPLAY_SHOW_FAVORITE      = 'alvis_twitter/display/show_favorite';
+    CONST DISPLAY_USE_NOFOLLOW       = 'alvis_twitter/display/use_nofollow';
+    CONST DISPLAY_HASH_TAGS          = 'alvis_twitter/display/hash_tags';
+    CONST DISPLAY_AT_TAGS            = 'alvis_twitter/display/at_tags';
+    CONST DISPLAY_NEW_WINDOW         = 'alvis_twitter/display/new_window';
 
-    CONST MEDIA_SHOW                 = 'jasonalvis_twitter/media/show_media';
-    CONST MEDIA_SHOW_LINKS           = 'jasonalvis_twitter/media/show_links';
-    CONST MEDIA_SHOW_IMAGES          = 'jasonalvis_twitter/media/show_images';
-    CONST MEDIA_IMAGE_SIZE           = 'jasonalvis_twitter/media/image_size';
+    CONST MEDIA_SHOW                 = 'alvis_twitter/media/show_media';
+    CONST MEDIA_SHOW_LINKS           = 'alvis_twitter/media/show_links';
+    CONST MEDIA_SHOW_IMAGES          = 'alvis_twitter/media/show_images';
+    CONST MEDIA_IMAGE_SIZE           = 'alvis_twitter/media/image_size';
 
-    CONST SEARCH_QUERY               = 'jasonalvis_twitter/search/query';
+    CONST SEARCH_QUERY               = 'alvis_twitter/search/query';
 
     /**
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeInterface
